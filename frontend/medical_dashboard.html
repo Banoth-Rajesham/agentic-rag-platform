@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent DNA | Medical Diagnostic Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/medical_dashboard.css" />
+</head>
+
+<body>
+  <!-- ░░░ TOP NAV ░░░ -->
+  <header class="top-nav">
+    <div class="brand-row">
+      <a href="dashboard.html" class="back-link" title="Back to Dashboard">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+      <div class="brand-mark">AD</div>
+      <div>
+        <div class="brand-title">Agent DNA</div>
+        <div class="brand-subtitle">AI Health Operating System</div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="search-pill">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" placeholder="Search diagnostics, symptoms…" />
+      </div>
+      <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+      <button class="pill-btn">
+        <i class="fa-solid fa-dna"></i> Diagnostic RAG
+        <i class="fa-solid fa-chevron-down" style="font-size:.7rem"></i>
+      </button>
+      <button id="logoutBtn" class="pill-btn danger">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </div>
+  </header>
+
+  <!-- ░░░ MAIN LAYOUT ░░░ -->
+  <div class="app-body">
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+      <nav>
+        <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a class="nav-item active"><i class="fa-solid fa-heart-pulse"></i><span>Medical Diagnostic</span></a>
+        <a class="nav-item"><i class="fa-solid fa-file-waveform"></i><span>Lab Reports</span></a>
+        <a class="nav-item"><i class="fa-solid fa-seedling"></i><span>Diet Plans</span></a>
+        <a class="nav-item"><i class="fa-solid fa-pills"></i><span>Prescriptions</span></a>
+        <a class="nav-item"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+      </nav>
+    </aside>
+
+    <!-- ── Content ── -->
+    <main class="content-area">
+
+      <!-- Page header row -->
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1 id="diagnosticsTitle">ECG Analysis — Cardiac Arrhythmia &amp; Mild Cardiomegaly</h1>
+          <p id="diagnosticsSubtitle">3-D anatomical synthesis · RAG-extracted medical &amp; natural cure timelines</p>
+        </div>
+        <div class="page-header-right">
+          <!-- Case switcher pills (demo / quick switch) -->
+          <button class="case-pill active" data-case="heart"><i class="fa-solid fa-heart"></i> Heart</button>
+          <button class="case-pill" data-case="liver"><i class="fa-solid fa-circle-h"></i> Liver</button>
+          <button class="case-pill" data-case="kidneys"><i class="fa-solid fa-droplet"></i> Kidneys</button>
+          <button id="uploadReportBtn" class="upload-btn">
+            <i class="fa-solid fa-file-arrow-up"></i> Upload Report
+          </button>
+        </div>
+      </div>
+
+      <!-- 2-column workspace (Blender Style) -->
+      <div class="workspace">
+
+        <!-- LEFT: Huge 3-D Viewer -->
+        <section class="panel viewer-panel">
+          <div class="panel-head">
+            <span class="panel-icon"><i class="fa-solid fa-street-view"></i></span>
+            <span class="panel-title">Interactive 3D Anatomy (Skeleton View)</span>
+            <div class="viewer-controls">
+              <!-- Replaced with Outliner on the right, but keep reset -->
+              <button class="view-btn" id="btnReset"><i class="fa-solid fa-rotate-left"></i> Reset View</button>
+            </div>
+          </div>
+          <div id="viewportContainer">
+            <div id="organOverlay"></div>
+            <!-- Dynamic Selected Part Overlay -->
+            <div id="selectionOverlay" style="position: absolute; top: 14px; right: 14px; z-index: 10; display: none; background: rgba(30,30,30,0.85); border: 1px solid var(--accent); padding: 8px 12px; border-radius: 6px; font-size: 0.8rem; color: #fff; font-family: 'Inter', sans-serif; backdrop-filter: blur(8px);">
+              <i class="fa-solid fa-circle-info" style="color:var(--accent); margin-right:6px;"></i> Active: <span id="selectedPartName" style="font-weight: 700; color: #fff;"></span>
+            </div>
+            <!-- Keyboard Legend overlay -->
+            <div id="shortcutsLegend" style="position: absolute; bottom: 14px; right: 14px; background: rgba(30, 30, 30, 0.85); border: 1px solid var(--panel-border); border-radius: 8px; padding: 10px 14px; font-size: 0.72rem; color: #bbb; z-index: 10; backdrop-filter: blur(8px); display: flex; flex-direction: column; gap: 5px; font-family: 'Inter', sans-serif;">
+              <div style="font-weight: 700; color: #fff; margin-bottom: 2px; font-size: 0.75rem; display: flex; justify-content: space-between; align-items: center; gap: 15px;">
+                <span><i class="fa-solid fa-keyboard" style="color: var(--accent);"></i> Keyboard Shortcuts</span>
+                <i class="fa-solid fa-chevron-down" id="legendToggle" style="cursor: pointer; font-size: 0.6rem; color: #888;"></i>
+              </div>
+              <div id="legendContent" style="display: flex; flex-direction: column; gap: 4px;">
+                <div style="display:flex; justify-content:space-between; gap:16px;"><span>Snap View (Front/Right/Top/Back)</span><b style="color:#fff">1 / 3 / 7 / 9</b></div>
+                <div style="display:flex; justify-content:space-between; gap:16px;"><span>Perspective / Orthographic</span><b style="color:#fff">5</b></div>
+                <div style="display:flex; justify-content:space-between; gap:16px;"><span>Isolate (Local View)</span><b style="color:#fff">/</b></div>
+                <div style="display:flex; justify-content:space-between; gap:16px;"><span>Hide Selected Mesh</span><b style="color:#fff">H</b></div>
+                <div style="display:flex; justify-content:space-between; gap:16px;"><span>Unhide All Meshes</span><b style="color:#fff">Alt+H</b></div>
+                <div style="display:flex; justify-content:space-between; gap:16px;"><span>Isolate Mesh Visibility</span><b style="color:#fff">Shift+H</b></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT: Outliner & Data Panel -->
+        <section class="panel right-panel">
+          
+          <!-- Outliner (Blender style) -->
+          <div class="outliner-section">
+            <div class="outliner-head">
+              <i class="fa-solid fa-layer-group"></i> Scene Collection
+            </div>
+            <div class="outliner-list">
+              <div class="outliner-item" data-layer="skeletal">
+                <i class="fa-solid fa-chevron-right chevron"></i>
+                <i class="fa-solid fa-bone icon"></i>
+                <span class="label">1: Skeletal system</span>
+                <i class="fa-regular fa-eye vis-toggle"></i>
+              </div>
+              <div class="outliner-item" data-layer="muscular_insertions">
+                <i class="fa-solid fa-chevron-right chevron"></i>
+                <i class="fa-solid fa-link icon"></i>
+                <span class="label">2: Muscular insertions</span>
+                <i class="fa-regular fa-eye vis-toggle"></i>
+              </div>
+              <div class="outliner-item" data-layer="joints">
+                <i class="fa-solid fa-chevron-right chevron"></i>
+                <i class="fa-solid fa-compress icon"></i>
+                <span class="label">3: Joints</span>
+                <i class="fa-regular fa-eye vis-toggle"></i>
+              </div>
+              <div class="outliner-item" data-layer="muscular">
+                <i class="fa-solid fa-chevron-right chevron"></i>
+                <i class="fa-solid fa-dumbbell icon"></i>
+                <span class="label">4: Muscular system</span>
+                <i class="fa-regular fa-eye vis-toggle"></i>
+              </div>
+              <div class="outliner-item" data-layer="cardiovascular">
+                <i class="fa-solid fa-chevron-right chevron"></i>
+                <i class="fa-solid fa-heart-pulse icon"></i>
+                <span class="label">5: Cardiovascular system</span>
+                <i class="fa-regular fa-eye vis-toggle"></i>
+              </div>
+              <div class="outliner-item" data-layer="lymphoid">
+                <i class="fa-solid fa-chevron-right chevron"></i>
+                <i class="fa-solid fa-shield-virus icon"></i>
+                <span class="label">6: Lymphoid organs</span>
+                <i class="fa-regular fa-eye vis-toggle"></i>
+              </div>
+              <div class="outliner-item" data-layer="nervous">
+                <i class="fa-solid fa-chevron-right chevron"></i>
+                <i class="fa-solid fa-brain icon"></i>
+                <span class="label">7: Nervous system & Sense organs</span>
+                <i class="fa-regular fa-eye vis-toggle"></i>
+              </div>
+              <div class="outliner-item" data-layer="visceral">
+                <i class="fa-solid fa-chevron-right chevron"></i>
+                <i class="fa-solid fa-lungs icon"></i>
+                <span class="label">8: Visceral systems</span>
+                <i class="fa-regular fa-eye vis-toggle"></i>
+              </div>
+              <div class="outliner-item" data-layer="regions">
+                <i class="fa-solid fa-chevron-right chevron"></i>
+                <i class="fa-solid fa-person icon"></i>
+                <span class="label">9: Regions of human body (Skin)</span>
+                <i class="fa-regular fa-eye vis-toggle"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- RAG Data Section (Food & Medicine went down here) -->
+          <div class="data-section">
+            <div class="data-head">
+              <i class="fa-solid fa-file-medical"></i> Diagnostic Report & Treatment
+            </div>
+            <div class="panel-scroll">
+              
+              <!-- Food / Natural -->
+              <div class="rx-section-label"><i class="fa-solid fa-leaf green"></i> Organic Food & Diet Cure</div>
+              <div class="timeline-stepper" id="naturalTimeline" style="margin-bottom: 24px;"></div>
+
+              <!-- Prescriptions -->
+              <div class="rx-section-label"><i class="fa-solid fa-pills orange"></i> Prescriptions</div>
+              <div id="medicineList" style="margin-bottom: 24px;"></div>
+
+              <!-- Recovery -->
+              <div class="rx-section-label"><i class="fa-solid fa-heart-circle-check blue"></i> Recovery Timeline</div>
+              <div class="timeline-stepper" id="medicalTimeline"></div>
+
+            </div>
+          </div>
+
+        </section>
+
+      </div><!-- /workspace -->
+    </main>
+  </div><!-- /app-body -->
+
+  <!-- ░░░ UPLOAD MODAL ░░░ -->
+  <div class="modal-overlay" id="uploadModal">
+    <div class="modal-box">
+      <button class="modal-close" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-title">Upload Medical Report</div>
+      <p class="modal-sub">ECG traces, blood panels, lab PDFs — the AI agent extracts &amp; maps everything.</p>
+
+      <div class="dropzone" id="dropzone">
+        <div class="drop-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+        <div class="drop-heading">Drag &amp; Drop</div>
+        <div class="drop-sub">or click to Browse</div>
+        <div class="drop-note">JPG · PNG · PDF · DOC — max 15 MB</div>
+        <input type="file" id="fileInput" style="display:none" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif" />
+      </div>
+
+      <div class="file-chips">
+        <span class="chip pdf">PDF</span>
+        <span class="chip jpg">JPG</span>
+        <span class="chip png">PNG</span>
+        <span class="chip doc">DOC</span>
+      </div>
+
+      <button class="analyze-btn" id="analyzeBtn">
+        <i class="fa-solid fa-microscope"></i> Analyze File
+      </button>
+
+      <!-- Loader inside modal -->
+      <div class="modal-loader" id="modalLoader">
+        <div class="loader-ring"></div>
+        <div class="loader-text">Extracting Medical Data…</div>
+        <div class="loader-sub">RAG agent parsing · mapping organs · building timelines</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ░░░ SCRIPTS ░░░ -->
+  <!-- Three.js r128 — last version with working CDN for all addons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+  <!-- Post-processing (bloom) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+
+  <script src="js/medical_dashboard.js"></script>
+</body>
+</html>
