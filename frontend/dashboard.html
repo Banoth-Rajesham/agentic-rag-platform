@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/6b0f0b0c4b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
@@ -64,21 +64,21 @@
                         <div class="hero-card glass-card">
                             <div>
                                 <p>Latest deployment</p>
-                                <strong>Customer Support Agent</strong>
+                                <strong>Medical Diagnostic Agent</strong>
                             </div>
                             <span class="badge accent">Running</span>
                         </div>
                         <div class="hero-card glass-card">
                             <div>
                                 <p>Memory vault</p>
-                                <strong>Enabled for 6 agents</strong>
+                                <strong>Enabled for 1 agent</strong>
                             </div>
                             <span class="badge">Live</span>
                         </div>
                         <div class="hero-card glass-card">
                             <div>
                                 <p>Knowledge sync</p>
-                                <strong>Updated 3 min ago</strong>
+                                <strong>Updated just now</strong>
                             </div>
                             <span class="badge">Synced</span>
                         </div>
@@ -88,13 +88,12 @@
                 <section class="section-stack">
                     <div class="section-header">
                         <div>
-                            <h2>Recent Agents</h2>
-                            <p>Intelligent agent workspaces with memory and tool connections.</p>
+                            <h2>Medical Agent</h2>
+                            <p>Your dedicated medical diagnostic AI for patient insights and clinical planning.</p>
                         </div>
-                        <button class="text-button">View all agents</button>
                     </div>
                     <div class="agent-grid">
-                        <article class="workspace-card" style="border: 1px solid rgba(108, 99, 255, 0.3); background: rgba(108, 99, 255, 0.03);">
+                        <article class="workspace-card">
                             <div class="card-title-row">
                                 <div class="card-icon agent-icon" style="background: linear-gradient(135deg, #ff4d4d, #ffb84d); color: #fff; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;"><i class="fa-solid fa-heart-pulse"></i></div>
                                 <div>
@@ -111,289 +110,7 @@
                             </div>
                             <button class="secondary-action" onclick="window.location.href='medical_dashboard.html'" style="background: linear-gradient(135deg, #6c63ff, #4f46e5); color: #fff; border: none;">Open</button>
                         </article>
-                        <article class="workspace-card">
-                            <div class="card-title-row">
-                                <div class="card-icon agent-icon"><i class="fa-solid fa-headset"></i></div>
-                                <div>
-                                    <h3>Customer Support</h3>
-                                    <p>Handles tickets, triages requests, and escalates issues.</p>
-                                </div>
-                            </div>
-                            <div class="card-bottom-row">
-                                <span class="badge accent">Memory Enabled</span>
-                                <div class="card-metrics">
-                                    <span>Tools: 5</span>
-                                    <span>Knowledge: 12</span>
-                                </div>
-                            </div>
-                            <button class="secondary-action">Open</button>
-                        </article>
-                        <article class="workspace-card">
-                            <div class="card-title-row">
-                                <div class="card-icon research-icon"><i class="fa-solid fa-flask"></i></div>
-                                <div>
-                                    <h3>Research Agent</h3>
-                                    <p>Collects insights, summarizes findings, and generates briefs.</p>
-                                </div>
-                            </div>
-                            <div class="card-bottom-row">
-                                <span class="badge">Memory Enabled</span>
-                                <div class="card-metrics">
-                                    <span>Tools: 7</span>
-                                    <span>Knowledge: 20</span>
-                                </div>
-                            </div>
-                            <button class="secondary-action">Open</button>
-                        </article>
-                        <article class="workspace-card">
-                            <div class="card-title-row">
-                                <div class="card-icon code-icon"><i class="fa-brands fa-github"></i></div>
-                                <div>
-                                    <h3>Coding Agent</h3>
-                                    <p>Uses GitHub, terminal access, and docs for code reviews.</p>
-                                </div>
-                            </div>
-                            <div class="card-bottom-row">
-                                <span class="badge accent">Memory Enabled</span>
-                                <div class="card-metrics">
-                                    <span>Tools: 9</span>
-                                    <span>Knowledge: 18</span>
-                                </div>
-                            </div>
-                            <button class="secondary-action">Open</button>
-                        </article>
-                        <article class="workspace-card">
-                            <div class="card-title-row">
-                                <div class="card-icon sales-icon"><i class="fa-solid fa-chart-simple"></i></div>
-                                <div>
-                                    <h3>Sales Agent</h3>
-                                    <p>Syncs CRM data and automates outreach workflows.</p>
-                                </div>
-                            </div>
-                            <div class="card-bottom-row">
-                                <span class="badge">Connected to CRM</span>
-                                <div class="card-metrics">
-                                    <span>Tools: 6</span>
-                                    <span>Knowledge: 11</span>
-                                </div>
-                            </div>
-                            <button class="secondary-action">Open</button>
-                        </article>
                     </div>
-                </section>
-
-                <section class="section-stack">
-                    <div class="section-header">
-                        <div>
-                            <h2>Recent Conversations</h2>
-                            <p>Quick access to your latest AI chat threads.</p>
-                        </div>
-                        <button class="text-button">Open chat hub</button>
-                    </div>
-                    <div class="conversation-grid">
-                        <article class="conversation-card">
-                            <div>
-                                <h3>Customer Support</h3>
-                                <p>“Sure, I can prioritize the refund request and follow up with the user.”</p>
-                            </div>
-                            <div class="conversation-meta">
-                                <span>Yesterday</span>
-                                <span>GPT-4o</span>
-                            </div>
-                        </article>
-                        <article class="conversation-card">
-                            <div>
-                                <h3>Research</h3>
-                                <p>“Summarized competitor analysis with pricing, positioning, and risks.”</p>
-                            </div>
-                            <div class="conversation-meta">
-                                <span>Yesterday</span>
-                                <span>Claude 3</span>
-                            </div>
-                        </article>
-                        <article class="conversation-card">
-                            <div>
-                                <h3>Code Review</h3>
-                                <p>“Found the issue in the login flow and suggested a fix for auth headers.”</p>
-                            </div>
-                            <div class="conversation-meta">
-                                <span>Today</span>
-                                <span>Cursor AI</span>
-                            </div>
-                        </article>
-                        <article class="conversation-card">
-                            <div>
-                                <h3>Marketing</h3>
-                                <p>“Drafted the campaign pitch and optimized messaging for enterprise buyers.”</p>
-                            </div>
-                            <div class="conversation-meta">
-                                <span>2d ago</span>
-                                <span>Emergent</span>
-                            </div>
-                        </article>
-                    </div>
-                </section>
-
-                <section class="section-stack">
-                    <div class="section-header">
-                        <div>
-                            <h2>Knowledge Base</h2>
-                            <p>Centralized sources powering agent memory and retrieval.</p>
-                        </div>
-                        <button class="text-button">Manage sources</button>
-                    </div>
-                    <div class="source-grid">
-                        <article class="source-card">
-                            <div class="source-header">
-                                <span class="source-icon pdf-icon">PDF</span>
-                                <div>
-                                    <h3>PDF Library</h3>
-                                    <p>Document library for reference and training.</p>
-                                </div>
-                            </div>
-                            <div class="source-stats">
-                                <span>Documents: 42</span>
-                                <span>Embeddings: 8.2k</span>
-                                <span>Chunks: 1.4k</span>
-                            </div>
-                            <p class="source-sync">Last synced 15 min ago</p>
-                        </article>
-                        <article class="source-card">
-                            <div class="source-header">
-                                <span class="source-icon web-icon">WWW</span>
-                                <div>
-                                    <h3>Websites</h3>
-                                    <p>Curated knowledge from product pages and docs.</p>
-                                </div>
-                            </div>
-                            <div class="source-stats">
-                                <span>Documents: 28</span>
-                                <span>Embeddings: 6.1k</span>
-                                <span>Chunks: 1.1k</span>
-                            </div>
-                            <p class="source-sync">Last synced 2h ago</p>
-                        </article>
-                        <article class="source-card">
-                            <div class="source-header">
-                                <span class="source-icon notion-icon">No</span>
-                                <div>
-                                    <h3>Notion</h3>
-                                    <p>Notes, meeting logs, and product strategy docs.</p>
-                                </div>
-                            </div>
-                            <div class="source-stats">
-                                <span>Documents: 54</span>
-                                <span>Embeddings: 12.8k</span>
-                                <span>Chunks: 3.0k</span>
-                            </div>
-                            <p class="source-sync">Last synced 32 min ago</p>
-                        </article>
-                        <article class="source-card">
-                            <div class="source-header">
-                                <span class="source-icon github-icon">GH</span>
-                                <div>
-                                    <h3>GitHub</h3>
-                                    <p>Codebase and PR context for developer workflows.</p>
-                                </div>
-                            </div>
-                            <div class="source-stats">
-                                <span>Documents: 18</span>
-                                <span>Embeddings: 4.0k</span>
-                                <span>Chunks: 890</span>
-                            </div>
-                            <p class="source-sync">Last synced 8 min ago</p>
-                        </article>
-                        <article class="source-card">
-                            <div class="source-header">
-                                <span class="source-icon drive-icon">GD</span>
-                                <div>
-                                    <h3>Google Drive</h3>
-                                    <p>Shared docs and product assets available to agents.</p>
-                                </div>
-                            </div>
-                            <div class="source-stats">
-                                <span>Documents: 34</span>
-                                <span>Embeddings: 7.6k</span>
-                                <span>Chunks: 1.9k</span>
-                            </div>
-                            <p class="source-sync">Last synced 22 min ago</p>
-                        </article>
-                        <article class="source-card">
-                            <div class="source-header">
-                                <span class="source-icon vector-icon">DB</span>
-                                <div>
-                                    <h3>Vector Database</h3>
-                                    <p>High-performance retrieval storage for semantic search.</p>
-                                </div>
-                            </div>
-                            <div class="source-stats">
-                                <span>Documents: 120</span>
-                                <span>Embeddings: 24.0k</span>
-                                <span>Chunks: 6.4k</span>
-                            </div>
-                            <p class="source-sync">Last synced 5 min ago</p>
-                        </article>
-                    </div>
-                </section>
-
-                <section class="memory-actions-grid">
-                    <article class="memory-panel section-stack">
-                        <div class="section-header">
-                            <div>
-                                <h2>Memory</h2>
-                                <p>Recent memories and semantic context captured from agent interactions.</p>
-                            </div>
-                            <button class="text-button">View memory</button>
-                        </div>
-                        <div class="memory-list">
-                            <div class="memory-item">
-                                <div>
-                                    <span class="memory-tag">Recent Facts</span>
-                                    <h3>Completed client onboarding workflow</h3>
-                                </div>
-                                <span>2m ago</span>
-                            </div>
-                            <div class="memory-item">
-                                <div>
-                                    <span class="memory-tag">User Preference</span>
-                                    <h3>Prioritize urgent tickets for enterprise accounts</h3>
-                                </div>
-                                <span>18m ago</span>
-                            </div>
-                            <div class="memory-item">
-                                <div>
-                                    <span class="memory-tag">Pinned Memory</span>
-                                    <h3>Brand tone: professional, concise, and helpful.</h3>
-                                </div>
-                                <span>1h ago</span>
-                            </div>
-                            <div class="memory-item">
-                                <div>
-                                    <span class="memory-tag">Semantic Search</span>
-                                    <h3>Agent remembers product launch details from last week.</h3>
-                                </div>
-                                <span>3h ago</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="section-stack quick-actions-panel">
-                        <div class="section-header">
-                            <div>
-                                <h2>Quick Actions</h2>
-                                <p>Accelerate your workflow with built-in workspace actions.</p>
-                            </div>
-                        </div>
-                        <div class="quick-actions-grid">
-                            <button class="quick-action"><i class="fa-solid fa-plus"></i> New Agent</button>
-                            <button class="quick-action"><i class="fa-solid fa-file-import"></i> Import Documents</button>
-                            <button class="quick-action"><i class="fa-solid fa-file-pdf"></i> Upload PDF</button>
-                            <button class="quick-action"><i class="fa-brands fa-github"></i> Connect GitHub</button>
-                            <button class="quick-action"><i class="fa-brands fa-notion"></i> Connect Notion</button>
-                            <button class="quick-action"><i class="fa-solid fa-gear"></i> Create Workflow</button>
-                            <button class="quick-action"><i class="fa-solid fa-memory"></i> Train Memory</button>
-                        </div>
-                    </article>
                 </section>
             </main>
         </div>
